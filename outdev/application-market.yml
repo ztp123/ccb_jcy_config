@@ -1,0 +1,99 @@
+server:
+  port: 8560
+  cloud:
+    config:
+      url: http://127.0.0.1:8888
+      name: springCloudApp
+      profile: ${config.profile:dev}
+feign:
+   hystrix:
+     enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 600000
+  ConnectTimeout: 600000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  eureka:
+    enabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka/
+#service name
+spring:
+  devtools:
+    restart:
+      enabled: false
+  thymeleaf:
+    cache: false
+  application:
+    name: YONYOU-MARKET-WEB
+  freemarker:
+    template-loader-path: /templates
+  mvc:
+    static-path-pattern: /public/**
+  data:
+    mongodb:
+      uri: mongodb://39.104.87.29:27017/gpc
+    elasticsearch:
+      cluster-name: yonyou
+      cluster-nodes: 39.104.87.29:9300
+#  session:
+#    store-type: none
+  redis:
+    port: 33302
+    host: 106.75.216.203
+    password: ebs_stdv5_11
+    pool:
+      max-active: 100
+      max-idle: 5
+      max-wait: 600000
+#MYSQL
+db:
+  mysql:
+    jdbcUrl: jdbc:mysql://39.104.87.29:3306/ccb?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    username: ccb
+    password: ccb
+    driverClassName: com.mysql.jdbc.Driver
+    connectionTestQuery: SELECT 1
+    connectionTimeoutMs: 30000
+    idleTimeoutMs: 600000
+    maxLifetimeMs: 1800000
+    maxPoolSize: 20
+    minIdle: 1
+    transactionTimeoutS: 30
+ccb:
+  isTrans: uuuu
+page:
+  defaultsize: 20
+yyc:
+  sysId: ccbtest1
+es:
+  cluster_name: yonyou
+  cluster_nodes: 39.104.87.29:9300
+redis:
+  poolUrl: direct://39.104.87.29:6379?poolSize=20&poolName=ccb&password=ccb&username=ccb
+
+ncbase:
+  appid: ccb
+  server: ccb
+  checkin:
+    uri: ccb
+purchase:
+  bill:
+    checkout:
+      url: ccb
+
+secret_iv: b49e425a
+secret_key: 69c5deecf03a8ddb2fd934f5@747/c#
+sr_search_url: http://mall.ccb.com/v2/cpc/commodity/search
+sr_url: http://pl4mall.ccb.com/ecp/view/cpc/buy/commodity/search
