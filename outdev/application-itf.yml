@@ -1,0 +1,112 @@
+charset: ISO8859-1
+connect_timeout: 10
+db:
+    mysql:
+        connectionTestQuery: SELECT 1
+        connectionTimeoutMs: 30000
+        driverClassName: com.mysql.jdbc.Driver
+        idleTimeoutMs: 600000
+        jdbcUrl: jdbc:mysql://39.104.87.29:3306/ccb?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+        maxLifetimeMs: 1800000
+        maxPoolSize: 20
+        minIdle: 1
+        password: ccb
+        transactionTimeoutS: 30
+        username: ccb
+defaultBucket: uappr
+defaultBucketRead: uapread
+es:
+    cluster_name: yonyou
+    cluster_nodes: 39.104.87.29:9300
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:9999/eureka/
+    instance:
+        lease-expiration-duration-in-seconds: 5
+        lease-renewal-interval-in-seconds: 5.0
+fdfsread_server: 39.104.87.29
+network_timeout: 30
+page:
+    defaultsize: 20
+redis:
+    poolUrl: direct://39.104.87.29:6379?poolSize=20&poolName=ccb&password=ccb&username=ccb
+server:
+    port: 8520
+spring:
+    activemq:
+        broker-url: tcp://106.75.216.203:33301
+        #broker-url: tcp://localhost:61616
+        in-memory: false
+        password: admin
+        pool:
+            enabled: false
+        user: admin
+    application:
+        name: YONYOU-INTERFACE-SERVICE
+    cloud:
+        config:
+            name: springCloudApp
+            profile: ${config.profile:dev}
+            uri: http://127.0.0.1:8888
+    data:
+        mongodb:
+            uri: mongodb://39.104.87.29:27017/gpc
+    datasource:
+        primary:
+            connectionTestQuery: SELECT 1
+            connectionTimeoutMs: 30000
+            driver-class-name: com.mysql.jdbc.Driver
+            idleTimeoutMs: 600000
+            jdbcUrl: jdbc:mysql://39.104.87.29:3306/gpc?useUnicode=true&characterEncoding=UTF-8
+            maxLifetimeMs: 1800000
+            maxPoolSize: 20
+            minIdle: 20
+            password: ccb
+            transactionTimeoutS: 30
+            username: ccb
+        secondary:
+            connectionTestQuery: SELECT 1
+            connectionTimeoutMs: 30000
+            driver-class-name: com.mysql.jdbc.Driver
+            idleTimeoutMs: 600000
+            jdbcUrl: jdbc:mysql://39.104.87.29:3306/gpc?useUnicode=true&characterEncoding=UTF-8
+            maxLifetimeMs: 1800000
+            maxPoolSize: 20
+            minIdle: 20
+            password: ccb
+            transactionTimeoutS: 30
+            username: ccb
+        test1:
+            driverClassName: com.mysql.jdbc.Driver
+            jdbcUrl: jdbc:mysql://39.104.87.29:3306/gpc?useUnicode=true&characterEncoding=UTF-8
+            password: ccb
+            username: ccb
+    session:
+        store-type: none
+storeType: FastDfs
+tracker_server: 39.104.87.29:22122
+yyc:
+    sysId: ccbtest1
+feign:
+   hystrix:
+     enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+#应用配置信息
+constant:
+  product:
+    attach:
+      fileUrlHead : http://39.104.87.29/
+      outerFileUrlHead : outerFileUrlHead
+    defaultEnterPriseId : 111111111
+#epa待办服务
+eda_service_url: http://128.192.128.14:9504/p2TodoService
