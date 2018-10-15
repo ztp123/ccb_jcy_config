@@ -1,3 +1,6 @@
+es:
+  cluster_name: yonyou
+  cluster_nodes: 39.104.87.29:9300
 server:
   port: 8550
 feign:
@@ -67,9 +70,6 @@ page:
   defaultsize: 20
 yyc:
   sysId: ccbtest1
-es:
-  cluster_name: yonyou
-  cluster_nodes: 39.104.87.29:9300
 redis:
   poolUrl: direct://39.104.87.29:6379?poolSize=20&poolName=ccb&password=ccb&username=ccb
 fileupload: #附件上传地址
