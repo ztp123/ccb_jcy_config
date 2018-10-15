@@ -1,0 +1,89 @@
+server:
+  port: 8550
+feign:
+   hystrix:
+     enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 600000
+  ConnectTimeout: 600000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  eureka:
+    enabled: true
+spring:
+  devtools:
+    restart:
+      enabled: false
+  thymeleaf:
+    cache: false
+  application:
+    name: YONYOU-WORKBENCH-WEB
+  freemarker:
+    template-loader-path: classpath:/templates #设定ftl文件路径
+  mvc:
+    static-path-pattern: /static/** #设定静态文件路径，js,css等
+  data:
+    mongodb:
+      uri: mongodb://39.104.87.29:27017/gpc
+#  session:
+#    store-type: none
+  redis:
+    port: 33302
+    host: 106.75.216.203
+    password: ebs_stdv5_11
+    pool:
+       max-active: 100
+       max-idle: 5
+       max-wait: 600000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka/ # 指定服务注册中心的地址
+db:
+  mysql:
+    jdbcUrl: jdbc:mysql://39.104.87.29:3306/ccb?useUnicode=true&characterEncoding=UTF-8&useSSL=true&allowMultiQueries=true
+    username: ccb
+    password: ccb
+    driverClassName: com.mysql.jdbc.Driver
+    connectionTestQuery: SELECT 1
+    connectionTimeoutMs: 30000
+    idleTimeoutMs: 600000
+    maxLifetimeMs: 1800000
+    maxPoolSize: 20
+    minIdle: 1
+    transactionTimeoutS: 30
+ccb:
+  isTrans: uuu
+page:
+  defaultsize: 20
+yyc:
+  sysId: ccbtest1
+es:
+  cluster_name: yonyou
+  cluster_nodes: 39.104.87.29:9300
+redis:
+  poolUrl: direct://39.104.87.29:6379?poolSize=20&poolName=ccb&password=ccb&username=ccb
+fileupload: #附件上传地址
+  fileurl:
+    service: http://localhost:33300/file/file/upload
+
+#是否自动预提
+isAccrued: false
+#是否自动废除预占订单
+cancelOrder: false
+#是否自动完成待收货订单
+endOrder: false
+
+
+#生成二维码地址
+barcode:
+  url: http://127.0.0.1:8550/api/yonyou/barcode/generate
