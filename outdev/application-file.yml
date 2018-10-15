@@ -1,0 +1,42 @@
+ccb:
+    isTrans: uuuu
+charset: ISO8859-1
+connect_timeout: 10
+db:
+    mysql:
+        connectionTestQuery: SELECT 1
+        connectionTimeoutMs: 30000
+        driverClassName: com.mysql.jdbc.Driver
+        idleTimeoutMs: 600000
+        jdbcUrl: jdbc:mysql://39.104.87.29:3306/cpu_baseservice?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+        maxLifetimeMs: 1800000
+        maxPoolSize: 20
+        minIdle: 20
+        password: ccb
+        transactionTimeoutS: 30
+        username: ccb
+defaultBucket: uappr
+defaultBucketRead: uapread
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:9999/eureka/
+fdfsread_server: 39.104.87.29
+multipart:
+    maxFileSize: 10Mb
+    maxRequestSize: 50Mb
+network_timeout: 30
+page:
+    defaultsize: 20
+server:
+    port: 8580
+spring:
+    application:
+        name: YONYOU-FILE-SERVICE
+    cloud:
+        config:
+            name: ccb_config
+            profile: ${config.profile:dev}
+            uri: http://127.0.0.1:8888
+storeType: FastDfs
+tracker_server: 39.104.87.29:22122
