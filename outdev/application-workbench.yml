@@ -1,6 +1,6 @@
 es:
   cluster_name: yonyou
-  cluster_nodes: 39.104.87.29:9300
+  cluster_nodes: 39.104.87.29
 server:
   port: 8550
 feign:
